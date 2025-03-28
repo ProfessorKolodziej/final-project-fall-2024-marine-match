@@ -1,35 +1,79 @@
-/*
-CSS controls the styling of the page.
-You can write a color in directly, or use variables.
-Try changing the color from blue to red in the
-primary color variable below.
-*/
-
-:root {
-	--color-primary: blue;
-	--color-secondary: #c00;
+/* default width is 834 px (tablet)*/
+* {
+    box-sizing: border-box;
 }
 
-/*
-CSS doesn't allow variables to be used in media
-queries just yet, but you can use these values
-to help you out.
-
-	--size-xs: 320px;
-	--size-sm: 480px;
-	--size-md: 768px;
-	--size-lg: 1024px;
-	--size-xl: 1200px;
-*/
+body {
+    padding: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    min-height: 100vh;
+    background-image: url(/src/images/bg.png);
+    background-repeat: no-repeat;
+    background-size: 1800px;
+    background-position: center top;
+}
 
 h1 {
-	color: var(--color-primary);
+    font-family: "Titan One", sans-serif;
+    font-size: 90px;
+    color: #007D90;
+    text-align: center;
+    margin: 0;
 }
 
-/* This uses the same value as --size-xs. */
-@media screen and (width >= 320px) {
-	.content-container {
-		margin: 0 auto;
-		max-width: 768px;
+p {
+    font-family: "Instrument Sans", sans-serif;
+    font-size: 54px;
+    color: #002B33;
+    line-height: 1.5;
+    text-align: center;
+    margin: 0;
+    padding: 0 10%;
+}
+
+a {
+    font-family: "Onest", sans-serif;
+    font-size: 54px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.button {
+    background-color: #007D90;
+    padding: 1% 8%;
+    border-radius: 50px;
+	a {
+		text-decoration: none;
 	}
+}
+
+.button:hover {
+	background-color: #005766;
+	transition-duration: 100ms;
+}
+
+.button:active {
+	background-color: #00414d;
+	a {
+		color: 	#cee1e4;
+	}
+}
+
+.container {
+    background-color: #FFF6E5;
+    border-radius: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+    margin: 0;
+    gap: 40px;
+}
+
+.logohide {
+	display: none;
 }
