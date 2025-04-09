@@ -1,5 +1,7 @@
 /* default resolution is 1194 x 834 px (tablet)*/
 
+/* UNIVERSAL */
+
 * {
     box-sizing: border-box;
 }
@@ -7,18 +9,6 @@
 body {
     margin: 0;
     padding: 0;
-}
-
-.titleScreen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    min-height: 100vh;
-    background-image: url("/src/images/bg.png");
-    background-repeat: no-repeat;
-    background-size: 1800px;
-    background-position: center top;
 }
 
 .padding {
@@ -33,12 +23,20 @@ h1 {
     margin: 0;
 }
 
+h2 {
+    font-family: "Instrument Sans", sans-serif;
+    font-size: 50px;
+    color: #00414d;
+    text-align: center;
+    margin: 0;
+}
+
 p {
     font-family: "Instrument Sans", sans-serif;
     color: #00414d;
     text-align: center;
     margin: 0;
-    font-size: 40px;
+    font-size: 38px;
     font-weight: 400;
     line-height: 1.25;
 }
@@ -56,31 +54,52 @@ a {
     padding: 1% 8%;
     border-radius: 50px;
     text-decoration: none;
+    cursor: pointer;
     p {
         color: #FFFFFF;
         font-weight: 800;
-        font-size: 36px;
+        font-size: 40px;
         text-decoration: none;
+    }
+    &.button:hover {
+        background-color: #005766;
+        transition-duration: 100ms;
+    }
+    &.button:active {
+        background-color: #00414d;
+        a {
+            color: #d0ecf4;
+        }
     }
 }
 
-.button:hover {
-	background-color: #005766;
-	transition-duration: 100ms;
-}
 
-.button:active {
-	background-color: #00414d;
-	a {
-		color: 	#cee1e4;
-	}
+/* INDEX */
+
+.titleScreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    min-height: 100vh;
+    background-image: url("../images/bg.png");
+    background-repeat: no-repeat;
+    background-size: 1800px;
+    background-position: center top;
 }
 
 .instrContainer {
     background-color: #FFF6E5;
     border-radius: 55px;
     margin: 8%;
-    padding: 2%;
+    padding: 5%;
+    min-width: 90vw;
+    max-width: 90vw;
+    min-height: 70vh;
+    max-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .instr1 {
@@ -88,12 +107,11 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 5%;
-    margin: 0;
     gap: 40px;
     p {
         font-size: 54px;
         font-weight: 500;
+        max-width: 20ch; 
     }
 }
 
@@ -102,8 +120,6 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 5% 0;
-    margin: 0;
     gap: 40px;
 }
 
@@ -113,130 +129,236 @@ a {
     justify-content: center;
     align-items: center;
     gap: 36px;
+    p {
+        line-height: 1;
+        margin: 0;
+    }
 }
 
-.hide {
-	display: none;
-}
+
+/* GAME */
 
 nav {
-    background-color: #cee1e4;
+    background-color: #d0ecf4;
     display: flex;
     flex-direction: row;
-    gap: 10%;
-    padding: 22px;
     align-items: center;
     justify-content: center;
+    height: 100%;
+    padding-right: 2%;
+    gap: 10%;
 }
 
 .smallLogo {
-    max-width: 50%;
+    max-width: 50vw;
+    max-height: 20vh;
+    padding: 1em 0;
 }
 
-.credButton {
+.smallButton {
     background-color: #007D90;
-    padding: 1% 2%;
+    padding: 1vw 5vh;
     border-radius: 50px;
     text-decoration: none;
     display: flex;
     justify-content: center;
+    z-index: 3;
+    cursor: pointer;
 	p {
         font-size: 24px;
         font-weight: 800;
         color: #FFFFFF;
 	}
-}
-
-.credButton:hover {
-	background-color: #005766;
-	transition-duration: 100ms;
-}
-
-.credButton:active {
-	background-color: #00414d;
-	p {
-		color: 	#cee1e4;
-	}
+    &.smallButton:hover{
+        background-color: #005766;
+        transition-duration: 100ms;
+    }
+    &.smallButton:active {
+        background-color: #00414d;
+        p {
+            color: #d0ecf4;
+        }
+    }
 }
 
 .environment {
     background-color: #FFF6E5;
-    padding: 2% 0;
+    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 5%;
+    p {
+        font-size: 5vh;
+    }
 }
 
-.enviro {
-    margin: 2% 0;
+.ice { /* for some reason this doesn't work if i put them in one call, making this very repetitious... */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    p {
-        font-size: 30px;
-        line-height: 1;
-        font-weight: 500;
-        padding: 0;
-        margin-top: 5%;
-    }
-    img {
-        max-height: 30vh;
-        min-width: 35vw;
-    }
+    align-items: center;
+    gap: 1em;
+    padding: 2em 3em;
 }
 
-.enviro:hover {
-    p {
-        font-weight: 700;
-    }
-    img {
-        filter: brightness(80%);
-    }
+.coral {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding: 2em 3em;
 }
 
-.enviro:active {
-    img {
-        filter: brightness(80%);
-    }
+#ice {
+    background-color: blue;
+    width: 40vw;
+    min-height: 20vw;
+}
+
+#coral {
+    background-color: pink;
+    width: 40vw;
+    min-height: 20vw;
 }
 
 .field {
     display: flex;
     flex-direction: column;
-    padding-top: 2%;
-    padding-bottom: 0%;
-    background-image: url(/src/images/bg.png);
+    justify-content: center;
+    height: 100%;
+    background-image: url(../images/bg.png);
+    background-size: cover;
     background-position: top;
-    background-size: 200vh 80vw;
     background-repeat: no-repeat;
-    gap: 20px;
 }
 
-.animals {
+#animals {
     display: grid;
     justify-items: center;
+    align-items: center;
     grid-template-columns: repeat(3, 1fr);
+    height: 25vh;
+    margin: 1vh 0;
+}
+
+.animal {
+    max-height: 24vh;
+    cursor: pointer;
+}
+
+.animal:active { /* not working? maybe bc of dragula */
     img {
-        max-height: 24vh;
-    }
-    img:hover {
-        filter: brightness(80%);
-    }
-    img:active {
         filter: brightness(80%);
     }
 }
 
 .buttonContainer {
+    height: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 8%;
-    padding-bottom: 1%;
     .button {
-        padding: 1% 5%;
+        padding: 1vw 5vh;
+        margin: 2vh;
     }
 }
+
+.popup {
+    position: absolute;
+    border: 3px solid;
+    border-color: #005766;
+    display: block;
+    padding: 2em;
+    width: 70vw;
+    height: 50vh;
+    top: calc(50% - 25vh);
+    left: calc(50% - 35vw);
+    background-color: #eaf7fa;
+    border-radius: 55px;
+    section {
+        max-width: 100%;
+        max-height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 2em;
+    }
+    p {
+        padding: 20px;
+    }
+}
+
+.closeButton {
+    background-color: #007D90;
+    border-radius: 50px;
+    padding: 1% 5%;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    z-index: 3;
+	p {
+        font-size: 35px;
+        font-weight: 800;
+        color: #FFFFFF;
+        padding: 0;
+	}
+}
+
+.closeButton:hover {
+    background-color: #005766;
+    transition-duration: 100ms;
+        }
+
+.closeButton:active {
+        background-color: #00414d;
+        p {
+            color: #d0ecf4;
+        }
+    }
+
+.smallText {
+    p {
+        font-size: 28px;
+    }
+}
+
+/* Hide DO NOT MOVE */
+
+.hide {
+	display: none;
+}
+
+/* Dragula */
+
+.gu-mirror {
+    position: fixed !important;
+    margin: 0 !important;
+    z-index: 9999 !important;
+    opacity: 0.8;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    filter: alpha(opacity=80);
+}
+
+.gu-hide {
+    display: none !important;
+}
+
+.gu-unselectable {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}
+
+.gu-transit {
+    opacity: 0.2;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+    filter: alpha(opacity=20);
+}
+
+  /* End Dragula */

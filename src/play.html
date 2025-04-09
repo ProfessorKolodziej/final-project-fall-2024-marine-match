@@ -6,11 +6,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Description here" />
-	<link rel ="stylesheet" href="css/style.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Onest:wght@800&family=Titan+One&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="/src/css/style.css">
+	<link rel="stylesheet" href="css/style.css">
 	<title>Marine Match Game</title>
 </head>
 
@@ -18,41 +17,73 @@
 	<nav>
 		<img class="smallLogo" src="images/audio.svg">
 		<img class="smallLogo" src="images/logo.svg">
-		<a class="credButton" href="#">
+		<a class="smallButton" href="#">
 			<p>Credits</p>
 		</a>
 	</nav>
 
 	<section class="environment">
-		<div class="enviro">
-			<img id="ice" src="images/ice.svg">
+		<div class=ice>
+			<div id="ice"></div>
 			<p>Arctic Ocean Exhibit</p>
 		</div>
-		<div class="enviro">
-			<img id="coral" src="images/coral.svg">
+
+		<div class=coral>
+			<div id="coral"></div>
 			<p>Coral Reef Exhibit</p>
 		</div>
 	</section>
 
 	<section class="field">
-		<div class="animals">
-			<img id="seal" src="images/seal.svg">
-			<img id="seahorse" src="images/seahorse.svg">
-			<img id="starfish" src="images/starfish.svg">
+		<div id="animals">
+			<img id="seal" class="animal" src="images/seal.svg">
+			<img id="seahorse" class="animal" src="images/seahorse.svg">
+			<img id="starfish" class="animal" src="images/starfish.svg">
 		</div>
 		<div class="buttonContainer">
 			<div class="button">
 				<p>Done</p>
 			</div>
-			<div class="button">
+			<div id="helpButton" class="button">
 				<p>Help!</p>
 			</div>
 		</div>
 	</section>
 
+	<aside id="popup" class="hide">
+		<section>
+			<div id="sealTT" class="hide">
+				<h2>The <em>Harbor Seal</em> says...</h2>
+				<p>"I can live in waters as cold as 19 degrees Fahrenheit!"</p>
+			</div>
+
+			<div id="seahorseTT" class="hide">
+				<h2>The <em>Pacific Seahorse</em> says...</h2>
+				<p>"Sometimes the currents are too strong, so I hold onto branches of coral with my tail!"</p>
+			</div>
+
+			<div id="starTT" class="hide">
+				<h2>The <em>Common Sea Star</em> says...</h2>
+				<p>"I like to eat <strong>polyps</strong>, which are the tiny animals that make up coral!"</p>
+			</div>
+
+			<div id="helpTT" class="hide smallText" >
+				<h2>Directions</h2>
+				<p><strong>Click</strong> the animals and habitats to learn about them.</p>
+				<p><strong>Drag</strong> them into the habitat you think they belong to.</p>
+				<p><strong>Press</strong> the "Done" button to check your work.</p>
+			</div>
+
+			<a id="close" class="closeButton">
+				<p>✖ Close</p>
+			</a>
+		</section>
+	</aside>
+
 
 
 <!-- do not remove -->
-<script src="js/scripts.js"></script>
+<script src="js/game.js" type="module"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js" referrerpolicy="no-referrer"></script>
 </body>
 </html>
