@@ -226,11 +226,11 @@ nav {
 }
 
 #ice {
-    background-image: url('/images/ice.svg');
+    background-image: url('../images/ice.svg');
 }
 
 #coral {
-    background-image: url('/images/coral.svg');
+    background-image: url('../images/coral.svg');
     background-position: center;
 }
 
@@ -239,7 +239,7 @@ nav {
     flex-direction: column;
     justify-content: center;
     height: 100%;
-    background-image: url(../images/bg.png);
+    background-image: url('../images/bg.png');
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
