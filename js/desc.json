@@ -1,0 +1,19 @@
+[
+    {
+        "id": "seal",
+        "title": "Harbor Seal",
+        "caption": "I can live in waters as cold as 19 degrees Fahrenheit!"
+    },
+
+    {
+        "id": "seahorse",
+        "title": "Pacific Seahorse",
+        "caption": "Sometimes the currents are too strong, so I hold onto branches of coral with my tail!"
+    },
+
+    {
+        "id": "starfish",
+        "title": "Common Sea Star",
+        "caption": "I like to eat polyps. Polyps are the tiny animals that make up coral!"
+    }
+]

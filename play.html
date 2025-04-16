@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Description here" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Onest:wght@800&family=Titan+One&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Marine Match Game</title>
+</head>
+
+<body>
+
+	<audio autoplay loop>
+		<source src="./audio/main.mp3" type="audio/mpeg">
+	  Your browser does not support the audio element.
+	  </audio>
+
+	<nav>
+		<img class="smallLogo" src="images/audio.svg" id="audioBtn">
+		<img class="smallLogo" src="images/logo.svg">
+		<a class="smallButton" id="credits">
+			<p>Credits</p>
+		</a>
+	</nav>
+
+	<section class="environment">
+		<div class="ice">
+			<div id="ice" class="enviro"></div>
+			<p>Arctic Ocean Exhibit</p>
+		</div>
+
+		<div class="coral">
+			<div id="coral" class="enviro"></div>
+			<p>Coral Reef Exhibit</p>
+		</div>
+	</section>
+
+	<section class="field">
+		<div id="animals">
+			<img id="seal" class="animal" src="images/seal.svg">
+			<img id="seahorse" class="animal" src="images/seahorse.svg">
+			<img id="starfish" class="animal" src="images/starfish.svg">
+		</div>
+		<div class="buttonContainer">
+			<div id="doneButton" class="button" >
+				<p>Done</p>
+			</div>
+			<div id="helpButton" class="button">
+				<p>Help!</p>
+			</div>
+		</div>
+	</section>
+
+	<div id="overlay" class="hide"></div>
+
+	<aside id="popup" class="hide">
+		<section>
+			<div id="sealTT" class="hide">
+				<h2>The <em>Harbor Seal</em> says...</h2>
+				<p>"I can live in waters as cold as 19 degrees Fahrenheit!"</p>
+			</div>
+
+			<div id="seahorseTT" class="hide">
+				<h2>The <em>Pacific Seahorse</em> says...</h2>
+				<p>"Sometimes the currents are too strong, so I hold onto branches of coral with my tail!"</p>
+			</div>
+
+			<div id="starTT" class="hide">
+				<h2>The <em>Common Sea Star</em> says...</h2>
+				<p>"I like to eat <strong>polyps</strong>, which are the tiny animals that make up coral!"</p>
+			</div>
+
+			<div id="helpTT" class="hide smallText" >
+				<h2>Directions</h2>
+				<p><strong>Tap</strong> the animals to learn about them.</p>
+				<p><strong>Drag</strong> them into the habitat you think they belong in.</p>
+				<p><strong>Tap</strong> the "Done" button to check your answers.</p>
+			</div>
+
+			<div id="errorTT" class="hide" >
+				<h2>Uh Oh!</h2>
+				<p>Some of the animals aren't in the right place.</p>
+				<p>Try again.</p>
+			</div>
+
+			<a id="close" class="closeButton">
+				<p>Go Back</p>
+			</a>
+		</section>
+	</aside>
+
+	<aside id="winPopup" class="hide">
+		<section>
+			<div id="winTT" class="hide" >
+				<h2>Hooray!</h2>
+				<p>Thanks to you, all the animals are happy in their new homes!</p>
+			</div>
+			<div class="buttonDiv">
+				<a class="closeButton" href="https://ocean.si.edu/ocean-life" target="_blank">
+					<p>Learn More</p>
+				</a>
+				<a class="closeButton" href="/index.html">
+					<p>Play Again?</p>
+				</a>
+		</section>
+	</aside>
+
+<!-- do not remove -->
+<script src="js/game.js" type="module"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js" referrerpolicy="no-referrer"></script>
+</body>
+</html>
