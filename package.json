@@ -39,8 +39,10 @@
     "@profkexplains/htmlvalidate": "file:config/htmlvalidate",
     "cm523-unit-tests": "github:ProfessorKolodziej/cm523-unit-tests",
     "dragula": "^3.7.3",
+    "git": "^0.1.5",
     "html-validate": "^8.0.5",
-    "jest": "^29.5.0"
+    "jest": "^29.5.0",
+    "redeploy": "^1.0.1"
   },
   "jest": {
     "clearMocks": true,
