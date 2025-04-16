@@ -92,7 +92,7 @@ a {
     background-color: #FFF6E5;
     border-radius: 55px;
     margin: 8%;
-    padding: 5%;
+    padding: 5% 1%;
     min-width: 90vw;
     max-width: 90vw;
     min-height: 70vh;
@@ -152,17 +152,24 @@ nav {
 .smallLogo {
     max-width: 50vw;
     max-height: 20vh;
-    padding: 1em 0;
+    padding: 3vh 0;
+}
+
+#audioBtn:active {
+    filter: brightness(80%);
+}
+
+#audioBtn:hover {
+    filter: brightness(90%);
 }
 
 .smallButton {
     background-color: #007D90;
-    padding: 1vw 5vh;
+    padding: 1% 3%;
     border-radius: 50px;
     text-decoration: none;
     display: flex;
     justify-content: center;
-    z-index: 3;
     cursor: pointer;
 	p {
         font-size: 24px;
@@ -190,7 +197,16 @@ nav {
     align-items: center;
     p {
         font-size: 5vh;
+        font-weight: 500;
     }
+}
+
+.enviro {
+    filter: drop-shadow(8px 8px 10px rgb(232, 205, 125, 0.8));
+    gap: 1em;
+    width: 40vw;
+    height: 20vw;
+    background-repeat: no-repeat;
 }
 
 .ice { /* for some reason this doesn't work if i put them in one call, making this very repetitious... */
@@ -198,7 +214,6 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1em;
     padding: 2em 3em;
 }
 
@@ -207,20 +222,16 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1em;
     padding: 2em 3em;
 }
 
 #ice {
-    background-color: blue;
-    width: 40vw;
-    min-height: 20vw;
+    background-image: url('/images/ice.svg');
 }
 
 #coral {
-    background-color: pink;
-    width: 40vw;
-    min-height: 20vw;
+    background-image: url('/images/coral.svg');
+    background-position: center;
 }
 
 .field {
@@ -246,6 +257,8 @@ nav {
 .animal {
     max-height: 24vh;
     cursor: pointer;
+    filter: drop-shadow(8px 8px 10px rgb(0, 87, 102, 0.8));
+    background: transparent;
 }
 
 .animal:active { /* not working? maybe bc of dragula */
@@ -279,18 +292,44 @@ nav {
     left: calc(50% - 35vw);
     background-color: #eaf7fa;
     border-radius: 55px;
+    z-index: 3;
     section {
         max-width: 100%;
-        max-height: 100%;
+        min-height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding-top: 2em;
+        gap: 1em;
+        z-index: 3;
     }
     p {
-        padding: 20px;
+        padding: 1vh;
+        font-size: 2.5em;
     }
+}
+
+#overlay {
+    z-index: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+.overlay {
+    content: "";
+    position: fixed;
+    background: rgba(0, 87, 102, .5);
+  }
+
+.buttonDiv {
+    display: flex;
+    gap: 3em;
+    width: 100%;
+    justify-content: center;
+
 }
 
 .closeButton {
