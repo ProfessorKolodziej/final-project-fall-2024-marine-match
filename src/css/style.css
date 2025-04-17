@@ -111,7 +111,7 @@ a {
     p {
         font-size: 54px;
         font-weight: 500;
-        max-width: 20ch; 
+        max-width: 20ch;
     }
 }
 
@@ -198,10 +198,14 @@ nav {
     p {
         font-size: 5vh;
         font-weight: 500;
+        z-index: 2;
     }
 }
 
 .enviro {
+    display: flex;
+    align-content: center;
+    justify-content: center;
     filter: drop-shadow(8px 8px 10px rgb(232, 205, 125, 0.8));
     gap: 1em;
     width: 40vw;
@@ -259,6 +263,7 @@ nav {
     cursor: pointer;
     filter: drop-shadow(8px 8px 10px rgb(0, 87, 102, 0.8));
     background: transparent;
+    align-self: center;
 }
 
 .animal:active { /* not working? maybe bc of dragula */
@@ -285,6 +290,10 @@ nav {
     border: 3px solid;
     border-color: #005766;
     display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 2em;
     width: 70vw;
     height: 50vh;
@@ -339,7 +348,6 @@ nav {
     text-decoration: none;
     display: flex;
     justify-content: center;
-    z-index: 3;
 	p {
         font-size: 35px;
         font-weight: 800;

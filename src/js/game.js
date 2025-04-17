@@ -9,6 +9,7 @@ function mute() {
 }
 
 // game win condition bools
+
 let error = false; // will trigger graphics change when a wrong answer is submitted
 
 const animalWin = {
@@ -17,8 +18,6 @@ const animalWin = {
   'starfish': false,
 }
 
-const popup = document.querySelector('#popup')
-
 //enviros
 const ice = document.querySelector('#ice')
 const coral = document.querySelector('#coral')
@@ -26,6 +25,8 @@ const coral = document.querySelector('#coral')
 // animals
 // i used copilot to help me clean this up since it was getting messy
 // originally i just had a ton of const variables and event listeners
+
+const popup = document.querySelector('#popup')
 
 const animals = [
     {
@@ -56,7 +57,8 @@ animals.forEach(animal => {
 // other windows
 const help = document.querySelector('#helpButton')
 const helpTT = document.querySelector('#helpTT')
-// put creds here
+const credits = document.querySelector('#creditsButton')
+const creditsTT = document.querySelector('#creditsTT')
 
 help.addEventListener("click", helpWindow)
 
@@ -66,6 +68,14 @@ function helpWindow() {
     overlay.classList.replace("hide", "overlay");
 }
 
+credits.addEventListener("click", creditsWindow)
+
+function creditsWindow() {
+    popup.classList.replace("hide", "popup");
+    creditsTT.classList.replace("hide", "show");
+    creditsTT.classList.add('smallText');
+    overlay.classList.replace("hide", "overlay");
+}
 
 // close windows
 const close = document.querySelector('#close')
@@ -85,56 +95,48 @@ function closePopup() {
     hideWindow(seahorseTT);
     hideWindow(helpTT);
     hideWindow(errorTT);
-}
-
-// shrink animal when dropped into an exhibit
-function shrinkAnimal() {
-    //i'm empty rn...;
+    hideWindow(creditsTT);
 }
 
 // dragula
-const drake = dragula([document.querySelector('#animals'), document.querySelector('#ice'), document.querySelector('#coral')]);
+const drake = dragula([document.querySelector('#animals'),
+    document.querySelector('#ice'),
+    document.querySelector('#coral')]);
+
 console.log(drake)
 
-function onDrop(el, target, source, sibling) {
-  //console.log("The item is:", el);
-  let animalID = el.attributes.id.nodeValue; // otherwise it just grabs the full HTML element!
-  console.log("The animal ID is:", animalID);
-  //console.log("The target of this item is:", target);
-  let targetID = target.attributes.id.nodeValue;
-  console.log("The target ID is:", targetID);
-  console.log("The source of this item is:", source);
-  //console.log("The sibling of this item is:", sibling);
+function onDrop(el, target, source) {
+    console.log("The item is:", el);
+    let animalID = el.attributes.id.nodeValue; // otherwise it just grabs the full HTML element
+    console.log("The animal ID is:", animalID);
+    console.log("The target of this item is:", target);
+    let targetID = target.attributes.id.nodeValue;
+    console.log("The target ID is:", targetID);
+    console.log("The source of this item is:", source);
+    if (targetID == 'ice' || targetID == 'coral') {
+        el.style.maxHeight = "18vh";
+    } else {
+        el.style.maxHeight = "24vh";
+    }
 
-  // win conditions - is there a way to call this as another function so it doesn't look so messy?
+  // win conditions
+    const animalToTarget = {
+        'seal': 'ice',
+        'seahorse': 'coral',
+        'starfish': 'coral'
+    }
 
-  const animalToTarget = {
-    'seal': 'ice',
-    'seahorse': 'coral',
-    'starfish': 'coral'
-  }
-  animalWin[animalID] = animalToTarget[animalID] == targetID
+    animalWin[animalID] = animalToTarget[animalID] == targetID
 
-  // What this essentially does:
-  /*if (animalToTarget[animalID] == targetID) {
-    animalWin[animalID] = true
-  } else {
-    animalWin[animalID] = false
-  }*/
-
-  console.log('the dropped animal is', animalWin[animalID]);
-  shrinkAnimal(animalID);
+    console.log('the dropped animal is', animalWin[animalID]);
 }
 
 drake.on("drop", onDrop);
 
-// check for win
+// check for win/error
 
 const checkWinButton = document.querySelector('#doneButton');
 checkWinButton.addEventListener("click", checkWin)
-
-
-// REPLACE WITH A DIFFERENT DIV AND DIFFERENT LINK
 
 const winScreen = document.querySelector('#winPopup')
 const winTT = document.querySelector('#winTT')
