@@ -41,6 +41,12 @@ p {
     line-height: 100%;
 }
 
+.smallText {
+    p {
+        font-size: 4vh;
+    }
+}
+
 a {
     font-family: "Onest", sans-serif;
     font-size: 8vh;
@@ -410,12 +416,6 @@ nav {
     }
 }
 
-.smallText {
-    p {
-        font-size: 4vh;
-    }
-}
-
 .animalInfo {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -471,7 +471,7 @@ nav {
 
 /* Responsive Styles */
 
-/* phone */
+/* phone (568 x 320) */
 @media screen and (max-width: 569px) {
     .instrContainer {
         border-radius: 35px;
@@ -533,10 +533,63 @@ nav {
     }
   }
 
-/* desktop */
-@media screen and (max-width: 1281px) {
-        /* sanity check
-    p {
-        color: red;
-    } */
+/* laptop (1280 x 832) */
+@media screen and (max-width: 1280px) {
+    .animal {
+        max-height: 23vh;
+    }
+
+    #winTT {
+        gap: 1vh;
+    }
+
+    .animalInfo {
+        margin-top: 2vh;
+        height: 28vh;
+        img {
+            height: 23vh;
+        }
+        img:hover {
+            height: 25vh;
+        }
+        img:active {
+            height: 25vh;
+        }
+    }
+}
+
+/* desktop (1920 x 280) */
+@media screen and (min-width: 1920px) {
+    .instrContainer {
+        width: 70vw;
+    }
+
+    nav {
+        height: 10vh;
+    }
+
+    .smallLogo {
+        height: 15vh;
+    }
+
+    #audioBtn {
+        height: 8vh;
+    }
+
+    .environment {
+        height: 45vh;
+    }
+
+    .enviro {
+        height: 35vh;
+    }
+
+    .field {
+        height: 45vh;
+    }
+
+    .popup {
+        width: 60vw;
+        left: 18.5vw;
+    }
 }
