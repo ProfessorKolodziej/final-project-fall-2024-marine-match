@@ -1,4 +1,6 @@
-/* default resolution is 1194 x 834 px (tablet)*/
+/* (tablet) 1194 x 834
+(phone) 568 x 320
+(desktop) 1280 x 832 */
 
 /* UNIVERSAL */
 
@@ -11,13 +13,9 @@ body {
     padding: 0;
 }
 
-.padding {
-    padding: 5% 0;
-}
-
 h1 {
     font-family: "Titan One", sans-serif;
-    font-size: 80px;
+    font-size: 10vh;
     color: #007D90;
     text-align: center;
     margin: 0;
@@ -25,10 +23,12 @@ h1 {
 
 h2 {
     font-family: "Instrument Sans", sans-serif;
-    font-size: 50px;
+    font-size: 8vh;
     color: #00414d;
     text-align: center;
     margin: 0;
+    line-height: 75%;
+    padding-bottom: 3vh;
 }
 
 p {
@@ -36,14 +36,20 @@ p {
     color: #00414d;
     text-align: center;
     margin: 0;
-    font-size: 38px;
+    font-size: 6vh;
     font-weight: 400;
-    line-height: 1.25;
+    line-height: 100%;
+}
+
+.smallText {
+    p {
+        font-size: 4vh;
+    }
 }
 
 a {
     font-family: "Onest", sans-serif;
-    font-size: 54px;
+    font-size: 8vh;
     color: #FFFFFF;
     text-align: center;
     text-decoration: none;
@@ -58,7 +64,7 @@ a {
     p {
         color: #FFFFFF;
         font-weight: 800;
-        font-size: 40px;
+        font-size: 7vh;
         text-decoration: none;
     }
     &.button:hover {
@@ -76,6 +82,10 @@ a {
 
 /* INDEX */
 
+.logo {
+    max-width: 75vw;
+}
+
 .titleScreen {
     display: flex;
     justify-content: center;
@@ -84,19 +94,16 @@ a {
     min-height: 100vh;
     background-image: url("../images/bg.png");
     background-repeat: no-repeat;
-    background-size: 1800px;
+    background-size: cover;
     background-position: center top;
 }
 
 .instrContainer {
     background-color: #FFF6E5;
     border-radius: 55px;
-    margin: 8%;
     padding: 5% 1%;
-    min-width: 90vw;
-    max-width: 90vw;
-    min-height: 70vh;
-    max-height: 70vh;
+    width: 90vw;
+    height: 75vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -107,11 +114,12 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 5vh;
     p {
-        font-size: 54px;
+        font-size: 8vh;
         font-weight: 500;
         max-width: 20ch;
+        line-height: 125%;
     }
 }
 
@@ -120,7 +128,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 5vh;
 }
 
 .instr3 {
@@ -128,31 +136,36 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 36px;
+    gap: 5vh;
     p {
-        line-height: 1;
-        margin: 0;
+        font-size: 5vh;
     }
 }
 
 
-/* GAME */
+/* PLAY */
 
 nav {
+    height: 15vh;
+    width: 100vw;
     background-color: #d0ecf4;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    padding-right: 2%;
-    gap: 10%;
+    padding: 2vw 0;
+    gap: 5vw;
 }
 
 .smallLogo {
-    max-width: 50vw;
-    max-height: 20vh;
+    width: 50vw;
+    height: 20vh;
     padding: 3vh 0;
+}
+
+#audioBtn {
+    width: 20vh;
+    height: 11vh;
 }
 
 #audioBtn:active {
@@ -172,7 +185,6 @@ nav {
     justify-content: center;
     cursor: pointer;
 	p {
-        font-size: 24px;
         font-weight: 800;
         color: #FFFFFF;
 	}
@@ -189,19 +201,24 @@ nav {
 }
 
 .environment {
+    height: 40vh;
     background-color: #FFF6E5;
-    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     p {
-        font-size: 5vh;
+        font-size: 4vh;
+        margin-top: 2vh;
         font-weight: 500;
+        z-index: 2;
     }
 }
 
 .enviro {
+    display: flex;
+    align-content: center;
+    justify-content: center;
     filter: drop-shadow(8px 8px 10px rgb(232, 205, 125, 0.8));
     gap: 1em;
     width: 40vw;
@@ -227,6 +244,7 @@ nav {
 
 #ice {
     background-image: url('../images/ice.svg');
+    background-position: center;
 }
 
 #coral {
@@ -235,12 +253,12 @@ nav {
 }
 
 .field {
+    height: 45vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100%;
-    background-image: url('../images/bg.png');
     background-size: cover;
+    background-image: url('../images/bg.png');
     background-position: top;
     background-repeat: no-repeat;
 }
@@ -251,24 +269,20 @@ nav {
     align-items: center;
     grid-template-columns: repeat(3, 1fr);
     height: 25vh;
-    margin: 1vh 0;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
 }
 
 .animal {
-    max-height: 24vh;
+    max-height: 27vh;
     cursor: pointer;
     filter: drop-shadow(8px 8px 10px rgb(0, 87, 102, 0.8));
     background: transparent;
-}
-
-.animal:active { /* not working? maybe bc of dragula */
-    img {
-        filter: brightness(80%);
-    }
+    align-self: center;
 }
 
 .buttonContainer {
-    height: 100%;
+    height: 15vh;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -285,11 +299,15 @@ nav {
     border: 3px solid;
     border-color: #005766;
     display: block;
-    padding: 2em;
-    width: 70vw;
-    height: 50vh;
-    top: calc(50% - 25vh);
-    left: calc(50% - 35vw);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4vh;
+    width: 80vw;
+    height: 65vh;
+    top: 18vh;
+    left: 10vw;
     background-color: #eaf7fa;
     border-radius: 55px;
     z-index: 3;
@@ -300,13 +318,52 @@ nav {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 1em;
         z-index: 3;
+        gap: 3vh;
     }
     p {
         padding: 1vh;
-        font-size: 2.5em;
+        max-width: 100%;
+        line-height: 125%;
     }
+    a {
+        p {
+            font-size: 8vh
+        }
+    }
+}
+
+.winPopup {
+    position: absolute;
+    border: 3px solid;
+    border-color: #005766;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+    width: 85vw;
+    height: 75vh;
+    top: 12vh;
+    left: 8vw;
+    background-color: #eaf7fa;
+    border-radius: 55px;
+    z-index: 3;
+    p {
+        padding: 1vh;
+        font-size: 4vh;
+    }
+}
+
+#winTT {
+    max-width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    gap: 2vh;
 }
 
 #overlay {
@@ -329,7 +386,9 @@ nav {
     gap: 3em;
     width: 100%;
     justify-content: center;
-
+    .closeButton {
+        padding: 3vh 5vh;
+    }
 }
 
 .closeButton {
@@ -339,30 +398,40 @@ nav {
     text-decoration: none;
     display: flex;
     justify-content: center;
-    z-index: 3;
 	p {
-        font-size: 35px;
+        font-size: 5vh;
         font-weight: 800;
         color: #FFFFFF;
         padding: 0;
 	}
-}
-
-.closeButton:hover {
-    background-color: #005766;
-    transition-duration: 100ms;
-        }
-
-.closeButton:active {
+    &.closeButton:hover {
+        background-color: #005766;
+        transition-duration: 100ms;
+    }
+    &.closeButton:active {
         background-color: #00414d;
         p {
             color: #d0ecf4;
         }
     }
+}
 
-.smallText {
-    p {
-        font-size: 28px;
+.animalInfo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    height: 26vh;
+    width: 100%;
+    img {
+        height: 20vh;
+        filter: drop-shadow(8px 8px 10px rgb(0, 87, 102, 0.8));
+    }
+    img:hover {
+        height: 22vh;
+    }
+    img:active {
+        height: 22vh;
     }
 }
 
@@ -400,4 +469,127 @@ nav {
     filter: alpha(opacity=20);
 }
 
-  /* End Dragula */
+/* Responsive Styles */
+
+/* phone (568 x 320) */
+@media screen and (max-width: 569px) {
+    .instrContainer {
+        border-radius: 35px;
+        width: 80vw;
+    }
+
+    .instr3 {
+        p {
+            font-size: 6vh;
+        }
+    }
+
+    .popup {
+        border-radius: 35px;
+        border: 2px solid;
+        padding: 10vh;
+        h2 {
+            padding-bottom: 4vh;
+        }
+        p {
+            padding: 2vh;
+        }
+    }
+
+    .nav {
+        height: 14vh;
+    }
+
+    .coral {
+        padding: 0;
+    }
+
+    .ice {
+        padding: 0;
+    }
+
+    .environment {
+        height: 40vh;
+        gap: 20vw;
+    }
+
+    .enviro {
+        width: 30vw;
+        height: 30vh;
+        filter: drop-shadow(4px 4px 5px rgb(232, 205, 125, 0.8))
+    }
+
+    .field {
+        padding-top: 1vh;
+        gap: 3vh;
+    }
+
+    .animal {
+        filter: drop-shadow(8px 8px 10px rgb(0, 87, 102, 0.8));
+    }
+
+    #animals {
+        margin: 0;
+    }
+  }
+
+/* laptop (1280 x 832) */
+@media screen and (max-width: 1280px) {
+    .animal {
+        max-height: 23vh;
+    }
+
+    #winTT {
+        gap: 1vh;
+    }
+
+    .animalInfo {
+        margin-top: 2vh;
+        height: 28vh;
+        img {
+            height: 23vh;
+        }
+        img:hover {
+            height: 25vh;
+        }
+        img:active {
+            height: 25vh;
+        }
+    }
+}
+
+/* desktop (1920 x 280) */
+@media screen and (min-width: 1920px) {
+    .instrContainer {
+        width: 70vw;
+    }
+
+    nav {
+        height: 10vh;
+    }
+
+    .smallLogo {
+        height: 15vh;
+    }
+
+    #audioBtn {
+        height: 8vh;
+    }
+
+    .environment {
+        height: 45vh;
+    }
+
+    .enviro {
+        height: 35vh;
+    }
+
+    .field {
+        height: 45vh;
+    }
+
+    .popup {
+        width: 60vw;
+        left: 18.5vw;
+    }
+}

@@ -21,9 +21,9 @@
 	  </audio>
 
 	<nav>
-		<img class="smallLogo" src="images/audio.svg" id="audioBtn">
+		<img id="audioBtn" src="images/music_on.svg">
 		<img class="smallLogo" src="images/logo.svg">
-		<a class="smallButton" id="credits">
+		<a class="smallButton smallText" id="creditsButton">
 			<p>Credits</p>
 		</a>
 	</nav>
@@ -31,12 +31,12 @@
 	<section class="environment">
 		<div class="ice">
 			<div id="ice" class="enviro"></div>
-			<p>Arctic Ocean Exhibit</p>
+			<p>Arctic Ocean</p>
 		</div>
 
 		<div class="coral">
 			<div id="coral" class="enviro"></div>
-			<p>Coral Reef Exhibit</p>
+			<p>Coral Reef</p>
 		</div>
 	</section>
 
@@ -83,30 +83,45 @@
 			</div>
 
 			<div id="errorTT" class="hide" >
-				<h2>Uh Oh!</h2>
-				<p>Some of the animals aren't in the right place.</p>
-				<p>Try again.</p>
+				<h1>Uh Oh!</h1>
+				<p>Some of the animals<br>aren't in the right place.</p>
+				<p><strong>Try again!</strong></p>
+			</div>
+
+			<div id="creditsTT" class="hide" >
+				<h2>Credits</h2>
+				<p><strong>Programming & Concept:</strong> Caitlyn Green</p>
+				<p><strong>Music:</strong> Ryan Gerhlein</p>
+				<p><strong>Animal Art:</strong> Karelkart</p>
+				<p><strong>Environment Art:</strong> Alexander, Casio</p>
+				<p><strong>Background Art:</strong> Sudakarn</p>
 			</div>
 
 			<a id="close" class="closeButton">
 				<p>Go Back</p>
 			</a>
+
 		</section>
 	</aside>
 
 	<aside id="winPopup" class="hide">
 		<section>
 			<div id="winTT" class="hide" >
-				<h2>Hooray!</h2>
+				<h1>Hooray!</h1>
 				<p>Thanks to you, all the animals are happy in their new homes!</p>
+				<p>Click the animals you helped to learn more about them.</p>
+				<div class="animalInfo">
+					<a href="https://kids.britannica.com/kids/article/seal/353754" target="_blank"><img src="images/seal.svg"></a>
+					<a href="https://kids.britannica.com/kids/article/sea-horse/390153" target="_blank"><img src="images/seahorse.svg"></a>
+					<a href="https://kids.britannica.com/kids/article/sea-star/353809" target="_blank"><img src="images/starfish.svg"></a>
+				</div>
+
+				<div class="buttonDiv">
+					<a class="closeButton" href="index.html">
+						<p>Play Again?</p>
+					</a>
+				</div>
 			</div>
-			<div class="buttonDiv">
-				<a class="closeButton" href="https://ocean.si.edu/ocean-life" target="_blank">
-					<p>Learn More</p>
-				</a>
-				<a class="closeButton" href="index.html">
-					<p>Play Again?</p>
-				</a>
 		</section>
 	</aside>
 

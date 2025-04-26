@@ -5,19 +5,22 @@ const audioBtn = document.querySelector('#audioBtn')
 audioBtn.addEventListener("click", mute);
 
 function mute() {
+    let imgSrc = audioBtn.attributes.src.nodeValue;
+    if (imgSrc == "images/music_on.svg") {
+        audioBtn.attributes.src.nodeValue = "images/music_off.svg";
+    } else {
+        audioBtn.attributes.src.nodeValue = "images/music_on.svg";
+    }
     audio.muted = !audio.muted;
 }
 
 // game win condition bools
-let error = false; // will trigger graphics change when a wrong answer is submitted
 
 const animalWin = {
   'seal': false,
   'seahorse': false,
   'starfish': false,
 }
-
-const popup = document.querySelector('#popup')
 
 //enviros
 const ice = document.querySelector('#ice')
@@ -27,10 +30,12 @@ const coral = document.querySelector('#coral')
 // i used copilot to help me clean this up since it was getting messy
 // originally i just had a ton of const variables and event listeners
 
+const popup = document.querySelector('#popup')
+
 const animals = [
     {
         id: 'seal',
-        TTid: 'sealTT'
+        TTid: 'sealTT',
     },
     {
         id: 'seahorse',
@@ -38,7 +43,8 @@ const animals = [
     },
     {
         id: 'starfish',
-        TTid: 'starTT' },
+        TTid: 'starTT'
+    },
 ];
 
 animals.forEach(animal => {
@@ -56,7 +62,8 @@ animals.forEach(animal => {
 // other windows
 const help = document.querySelector('#helpButton')
 const helpTT = document.querySelector('#helpTT')
-// put creds here
+const credits = document.querySelector('#creditsButton')
+const creditsTT = document.querySelector('#creditsTT')
 
 help.addEventListener("click", helpWindow)
 
@@ -66,6 +73,14 @@ function helpWindow() {
     overlay.classList.replace("hide", "overlay");
 }
 
+credits.addEventListener("click", creditsWindow)
+
+function creditsWindow() {
+    popup.classList.replace("hide", "popup");
+    creditsTT.classList.replace("hide", "show");
+    creditsTT.classList.add('smallText');
+    overlay.classList.replace("hide", "overlay");
+}
 
 // close windows
 const close = document.querySelector('#close')
@@ -85,63 +100,56 @@ function closePopup() {
     hideWindow(seahorseTT);
     hideWindow(helpTT);
     hideWindow(errorTT);
-}
-
-// shrink animal when dropped into an exhibit
-function shrinkAnimal() {
-    //i'm empty rn...;
+    hideWindow(creditsTT);
 }
 
 // dragula
-const drake = dragula([document.querySelector('#animals'), document.querySelector('#ice'), document.querySelector('#coral')]);
+const drake = dragula([document.querySelector('#animals'),
+    document.querySelector('#ice'),
+    document.querySelector('#coral')]);
+
 console.log(drake)
 
-function onDrop(el, target, source, sibling) {
-  //console.log("The item is:", el);
-  let animalID = el.attributes.id.nodeValue; // otherwise it just grabs the full HTML element!
-  console.log("The animal ID is:", animalID);
-  //console.log("The target of this item is:", target);
-  let targetID = target.attributes.id.nodeValue;
-  console.log("The target ID is:", targetID);
-  console.log("The source of this item is:", source);
-  //console.log("The sibling of this item is:", sibling);
+function onDrop(el, target, source) {
+    console.log("The item is:", el);
+    let animalID = el.attributes.id.nodeValue; // otherwise it just grabs the full HTML element
+    el.style.filter = "drop-shadow(8px 8px 8px rgb(0, 87, 102, 0.8))";
+    console.log("The animal ID is:", animalID);
+    console.log("The target of this item is:", target);
+    let targetID = target.attributes.id.nodeValue;
+    console.log("The target ID is:", targetID);
+    console.log("The source of this item is:", source);
+    if (targetID == 'ice' || targetID == 'coral') {
+        el.style.maxHeight = "20vh";
+    } else {
+        el.style.maxHeight = "28vh";
+    }
 
-  // win conditions - is there a way to call this as another function so it doesn't look so messy?
+  // win conditions
+    const animalToTarget = {
+        'seal': 'ice',
+        'seahorse': 'coral',
+        'starfish': 'coral'
+    }
 
-  const animalToTarget = {
-    'seal': 'ice',
-    'seahorse': 'coral',
-    'starfish': 'coral'
-  }
-  animalWin[animalID] = animalToTarget[animalID] == targetID
+    animalWin[animalID] = animalToTarget[animalID] == targetID
 
-  // What this essentially does:
-  /*if (animalToTarget[animalID] == targetID) {
-    animalWin[animalID] = true
-  } else {
-    animalWin[animalID] = false
-  }*/
-
-  console.log('the dropped animal is', animalWin[animalID]);
-  shrinkAnimal(animalID);
+    console.log('the dropped animal is', animalWin[animalID]);
 }
 
 drake.on("drop", onDrop);
 
-// check for win
+// check for win/error
 
 const checkWinButton = document.querySelector('#doneButton');
 checkWinButton.addEventListener("click", checkWin)
-
-
-// REPLACE WITH A DIFFERENT DIV AND DIFFERENT LINK
 
 const winScreen = document.querySelector('#winPopup')
 const winTT = document.querySelector('#winTT')
 const errorTT = document.querySelector('#errorTT')
 
 function winWindow() {
-    winScreen.classList.replace("hide", "popup");
+    winScreen.classList.replace("hide", "winPopup");
     winTT.classList.replace("hide", "show");
     overlay.classList.replace("hide", "overlay");
 }
@@ -154,14 +162,16 @@ function errorWindow() {
 
 function checkWin() {
     if (Object.values(animalWin).every(x => x)) { // for every single animal win value, check that it's true
-        console.log('the player has won :)');
-        let error = false;
+        //console.log('the player has won :)');
         winWindow();
 
     } else {
-        console.log('the game is yet to be won...');
-        let error = true;
+        //console.log('the game is yet to be won...');
         errorWindow();
+        animals.forEach((animal => {
+            if (!animalWin[animal.id]) {
+                document.querySelector(`#${animal.id}`).style.filter = "drop-shadow(8px 8px 8px rgb(255, 0, 0, 0.8))";
+            }
+        }))
     }
-    //console.log(error)
 }
