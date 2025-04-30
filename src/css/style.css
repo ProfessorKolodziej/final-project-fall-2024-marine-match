@@ -1,8 +1,6 @@
-/* (tablet) 1194 x 834
-(phone) 568 x 320
-(desktop) 1280 x 832 */
+/* Default size: Tablet 1194 x 834 */
 
-/* UNIVERSAL */
+/* UNIVERSA ELEMENTS */
 
 * {
     box-sizing: border-box;
@@ -57,7 +55,7 @@ a {
 
 .button {
     background-color: #007D90;
-    padding: 1% 8%;
+    padding: 1vh 5vw;
     border-radius: 50px;
     text-decoration: none;
     cursor: pointer;
@@ -289,7 +287,7 @@ nav {
     justify-content: center;
     gap: 8%;
     .button {
-        padding: 1vw 5vh;
+        padding: 1.5vw 6vh;
         margin: 2vh;
     }
 }
@@ -325,11 +323,6 @@ nav {
         padding: 1vh;
         max-width: 100%;
         line-height: 125%;
-    }
-    a {
-        p {
-            font-size: 8vh
-        }
     }
 }
 
@@ -394,12 +387,12 @@ nav {
 .closeButton {
     background-color: #007D90;
     border-radius: 50px;
-    padding: 1% 5%;
+    padding: 2vh 4vw;
     text-decoration: none;
     display: flex;
     justify-content: center;
 	p {
-        font-size: 5vh;
+        font-size: 6vh;
         font-weight: 800;
         color: #FFFFFF;
         padding: 0;
@@ -475,7 +468,6 @@ nav {
 @media screen and (max-width: 569px) {
     .instrContainer {
         border-radius: 35px;
-        width: 80vw;
     }
 
     .instr3 {
@@ -511,6 +503,9 @@ nav {
     .environment {
         height: 40vh;
         gap: 20vw;
+        p {
+            margin: .5;
+        }
     }
 
     .enviro {
@@ -520,7 +515,7 @@ nav {
     }
 
     .field {
-        padding-top: 1vh;
+        padding-top: 2vh;
         gap: 3vh;
     }
 
@@ -531,10 +526,23 @@ nav {
     #animals {
         margin: 0;
     }
+
+    .closeButton {
+        p {
+            padding: 1vh;
+            font-size: 6vh;
+        }
+    }
+
+    #creditsTT {
+        p {
+            padding: 1vh;
+        }
+    }
   }
 
 /* laptop (1280 x 832) */
-@media screen and (max-width: 1280px) {
+@media screen and (min-width: 1280px) {
     .animal {
         max-height: 23vh;
     }
@@ -562,10 +570,19 @@ nav {
 @media screen and (min-width: 1920px) {
     .instrContainer {
         width: 70vw;
+        border-radius: 100px;
+    }
+
+    .button {
+        border-radius: 70px;
+    }
+
+    .logo {
+        width: 55vw;
     }
 
     nav {
-        height: 10vh;
+        height: 12vh;
     }
 
     .smallLogo {
@@ -577,7 +594,7 @@ nav {
     }
 
     .environment {
-        height: 45vh;
+        height: 44vh;
     }
 
     .enviro {
@@ -585,11 +602,19 @@ nav {
     }
 
     .field {
-        height: 45vh;
+        height: 44vh;
+    }
+
+    .animal {
+        max-height: 28vh;
     }
 
     .popup {
         width: 60vw;
         left: 18.5vw;
+    }
+
+    .closeButton {
+        border-radius: 70px;
     }
 }
